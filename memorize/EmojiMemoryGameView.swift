@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var viewModel: EmojiMemoryGame
+struct EmojiMemoryGameView: View {
+   @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
         HStack {
@@ -19,7 +19,7 @@ struct ContentView: View {
                 }
             }
         }
-        .padding() // 为 ZStack 增加修饰，表示：在 ZStack 内的 所有 View，都增加 padding
+        .padding() // 为 ZStack 增加修饰，表示：在 ZStack 内的 所有 View，都增加 paddin
         .foregroundColor(Color.orange) // // 为 ZStack 增加修饰，表示：在 ZStack 内的 所有 View，color 都变为 blue
         .font(Font.largeTitle)
     }
@@ -29,7 +29,7 @@ struct ContentView_Previews: PreviewProvider {
     var viewModel: EmojiMemoryGame
     
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }
 
