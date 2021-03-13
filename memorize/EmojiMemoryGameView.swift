@@ -11,14 +11,12 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        HStack {
-            Text("hello").font(.headline)
-            ForEach(viewModel.cards) { card in
-                CardView(card: card).onTapGesture {
-                    viewModel.choose(card: card)
-                }
+        Grid(items:viewModel.cards, viewForItem: { card in
+            CardView(card: card).onTapGesture {
+                viewModel.choose(card: card)
             }
-        }
+            .padding(5)
+        })
         .padding() // 为 ZStack 增加修饰，表示：在 ZStack 内的 所有 View，都增加 paddin
         .foregroundColor(Color.orange) // // 为 ZStack 增加修饰，表示：在 ZStack 内的 所有 View，color 都变为 blue
         .font(Font.largeTitle)
